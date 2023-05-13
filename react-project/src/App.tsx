@@ -3,6 +3,16 @@ import reactLogo from './assets/react.svg'
 import viteLogo from '/vite.svg'
 import './App.css'
 
+function ButtonWithError(){
+  const causeError = ()=> {
+    throw new Error('Unexpected error!!!');
+  };
+
+  causeError();
+
+  return <button>Button with Error</button>;
+}
+
 function App() {
   const [count, setCount] = useState(0)
 
@@ -21,6 +31,7 @@ function App() {
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
+        <ButtonWithError />
         <p>
           Edit <code>src/App.tsx</code> and save to test HMR
         </p>
